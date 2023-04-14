@@ -24,28 +24,29 @@ const history = [];
     }
     //square button functionality 
     else if(keyValue == "^2"){
-      const num = parseFloat(inputText);
-      input.textContent = `${num}^2`;
-      outputText.textContent = num ** 2;
-      history.push({expression: inputText, result: result});
+     const num = parseFloat(inputText);
+     input.textContent = `${num}^2`;
+     const result = num ** 2;
+     output.textContent = result;
+     history.push({expression: inputText, result: result});
     }
     //brackets button functionality
      else if (keyValue === "brackets") {
       //Adding opening bracket if no bracket is present in input, or if there are more opening brackets than closing ones 
       if (
-        input.indexOf("(") == -1 ||
-        (input.indexOf("(") != -1 &&
-          input.indexOf(")") != -1 &&
-          input.lastIndexOf("(") < input.lastIndexOf(")"))
+       inputText.indexOf("(") == -1 ||
+        (inputText.indexOf("(") != -1 &&
+          inputText.indexOf(")") != -1 &&
+          inputText.lastIndexOf("(") < inputText.lastIndexOf(")"))
       ) {
         input.textContent += "(";
       } 
       //Adding closing brackets if there are more opening brackets than closing ones, or if an opening bracket has already been added
       else if (
-        (input.indexOf("(") != -1 && input.indexOf(")") == -1) ||
-        (input.indexOf("(") != -1 &&
-          input.indexOf(")") != -1 &&
-          input.lastIndexOf("(") > input.lastIndexOf(")")
+        (inputText.indexOf("(") != -1 && inputText.indexOf(")") == -1) ||
+        (inputText.indexOf("(") != -1 &&
+          inputText.indexOf(")") != -1 &&
+          inputText.lastIndexOf("(") > inputText.lastIndexOf(")")
         )
       ) {
         input.textContent += ")";
